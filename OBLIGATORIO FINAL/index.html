@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GESIMPORT</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div id="conteiner">
+      <div id="barra-navegacion" class="clearfix">
+        <img id="logo" alt="logo" />
+        <ul id="navPrincipal">
+          <li id="btnSeccionCrearViaje" class="btn empresa">
+            <a>Crear Viaje</a>
+          </li>
+          <li id="btnSeccionAsignarViaje" class="btn empresa">
+            <a>Asignar Viaje</a>
+          </li>
+          <li id="btnSeccionIngreso" class="btn empresa importador">
+            <a>Ingreso</a>
+          </li>
+          <li id="btnSeccionManifiesto" class="btn empresa">
+            <a>Manifiesto y Lista Carga Peligrosa</a>
+          </li>
+          <li id="btnSeccionRollover" class="btn empresa">
+            <a>Rollover</a>
+          </li>
+          <li id="btnSeccionHabilitar" class="btn empresa">
+            <a>Habilitar Importador</a>
+          </li>
+          <li id="btnSeccionCrearSoli" class="btn importador">
+            <a>Crear Solicitud</a>
+          </li>
+          <li id="btnSeccionConsultarSoli" class="btn importador">
+            <a>Consultar Solicitud</a>
+          </li>
+          <li id="btnSeccionCancelarSoli" class="btn importador">
+            <a>Cancelar Solicitud</a>
+          </li>
+          <li id="btnSeccionVisualizarInfo" class="btn importador">
+            <a>Visualizar información Estadistica</a>
+          </li>
+          <li id="btnCerrarSesion" class="importador empresa">
+            <a>Cerrar Sesión</a>
+          </li>
+        </ul>
+      </div>
+      <!-- FIN CABEZAL -->
+      <div id="contenido">
+        <div id="seccionRegistro" class="seccion importador">
+          <!-- ////REGISTRO ///////////////////-->
+          <h2>Registro</h2>
+
+          <label for="txtRegistroImportador">Nombre Importador: </label>
+          <input type="text" id="txtRegistroImportador" />
+          <br />
+
+          <label for="txtRegistroUsuario">Crear usuario: </label>
+          <input type="text" id="txtRegistroUsuario" />
+          <br />
+
+          <label for="slcFoto">Seleccione foto: </label>
+          <select id="slcFoto"></select>
+
+          <br />
+
+          <label for="txtRegistroPassword"> Ingrese contraseña: </label>
+          <input type="password" id="txtRegistroPassword" class="pass" />
+          <input
+            type="button"
+            value="Ver contraseña"
+            class="btnpass"
+            id="btnPassword"
+          />
+          <br />
+
+          <input type="button" value="Registrarse" id="btnRegistro" />
+
+          <p id="pRegistro"></p>
+
+          <br />
+          <hr />
+          <br />
+
+          <input type="button" value="VOLVER" id="btnVolver" />
+        </div>
+
+        <div id="seccionIngreso" class="seccion importador empresa">
+          <!-- ////INGRESO ///////////////-->
+          <h2>Ingreso</h2>
+          <br />
+
+          <label for="txtUsuario">Nombre de usuario: </label>
+          <input type="text" id="txtUsuario" />
+          <br />
+
+          <label for="txtPassword">Contraseña: </label>
+          <input type="password" id="txtPassword" class="pass" />
+          <input
+            type="button"
+            value="Ver contraseña"
+            class="btnpass"
+            id="btnContrasena"
+          />
+          <br />
+          <br />
+
+          <input type="button" value="Ingresar" id="btnIngresar" />
+
+          <hr />
+          <br />
+
+          <input
+            type="button"
+            id="btnSeccionRegistro"
+            value="Registro"
+            class="btn importador"
+          />
+
+          <p id="pErrorIngreso"></p>
+
+
+          <div id="tblObligatorio"></p>
+        </div>
+        <div id="seccionBienvenida" class="seccion importador empresa">
+          <h1 id="mensajeBienvenida">Bienvenido</h1>
+        </div>
+        <div id="seccionCrearSoli" class="seccion importador">
+          <!-- ////CREAR SOLICITUD/////////////-->
+          <h2>Formulario de solicitud</h2>
+          <label for="slcTipo">Tipo de mercadería:</label>
+          <select id="slcTipo">
+            <option value="xx">Seleccionar tipo</option>
+            <option value="CARGA GENERAL">CARGA GENERAL</option>
+            <option value="REFRIGERADO">REFRIGERADO</option>
+            <option value="CARGA PELIGROSA">CARGA PELIGROSA</option>
+          </select>
+          <br />
+
+          <label for="txtPuertoOrigen">Puerto de origen: </label>
+          <input type="text" id="txtPuertoOrigen" />
+          <br />
+
+          <label for="numContenedores">Cantidad contenedores: </label>
+          <input type="number" id="numContenedores" />
+          <br />
+
+          <label for="txtDescripcion">Descripcion mercadería</label>
+          <textarea id="txtDescripcion" cols="30" rows="3"></textarea>
+          <br />
+
+          <input type="button" value="Enviar" id="btnEnviar" />
+
+          <p id="pEnviarSolicitudMensaje"></p>
+        </div>
+
+        <div id="seccionConsultarSoli" class="seccion importador">
+          <!-- ////CONSULTAR SOLICITUD//////////-->
+          <h2>Solicitudes pendientes</h2>
+
+          <input
+            type="button"
+            value="MOSTRAR SOLICITUDES PENDIENTES"
+            id="btnMostrarSolicitudes"
+          />
+          <br />
+          <br />
+
+          <div id="tblSolicitudesPendientes"></div>
+
+          <p id="pConsultaSolicitudesPendientes"></p>
+          <hr />
+
+          <h2>Busqueda parcial</h2>
+          <br />
+          <!-- //BUSQUEDA PARCIAL//-->
+
+          <label for="txtBusqueda">Escriba palabra clave:</label>
+          <input type="text" id="txtBusqueda" /><br />
+
+          <input type="button" value="BUSQUEDA PARCIAL" id="btnBusParcial" />
+
+          <div id="tblBusquedaParcial"></div>
+          <p id="pConsultaBusquedaParcial"></p>
+        </div>
+
+        <div id="seccionCancelarSoli" class="seccion importador">
+          <!-- ////CANCELAR SOLICITUD/////////-->
+          <h2>Cancelar solicitud de carga pendiente</h2>
+          <br />
+
+          <label for="slcSolicitudCarga">Ingrese Nº de solicitud</label>
+          <select id="slcSolicitudCarga">
+            <option value="xx">Seleccionar nº ...</option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option></select
+          ><br />
+
+          <input type="button" value="Cancelar" id="btnCancelarSoli" />
+          <p id="pCancelarSolicitud"></p>
+        </div>
+
+        <div id="seccionVisualizarInfo" class="seccion importador">
+          <!-- ////VER INFO ESTADISTICA/////-->
+          <h2>Visualizar información estadistica</h2>
+          <br />
+
+          <label for="txtPorCancelaciones">Porcentaje de cancelaciones </label>
+          <input type="button" value="Ver" id="btnPorCancelaciones" />
+          <br />
+
+          <p id="pPorCancelaciones"></p>
+          <br />
+
+          <label for="txtLlegadas">Calendario de llegadas </label>
+          <input type="button" value="Ver" id="btnLlegadas" />
+          <br />
+
+          <div id="tblLlegadas"></div>
+          <br />
+
+          <label for="txtPorParticipacionLC"
+            >Porcentaje de participación de las líneas de carga:
+          </label>
+          <input type="button" value="Ver" id="btnPorParticipacionLC" />
+          <br />
+
+          <div id="tblPorParticipacionLC"></div>
+        </div>
+
+        <div id="seccionCrearViaje" class="seccion empresa">
+          <!-- ////CREAR VIAJE///////////////-->
+          <h2>Crear viaje</h2>
+          <br />
+
+          <label for="slcNombreBuque">Nombre del búque:</label>
+          <select id="slcNombreBuque">
+            <option value="xx">Seleccionar nombre...</option>
+          </select>
+          <br />
+
+          <label for="numContenedoresMax"
+            >Cantidad Máxima de Contenedores:</label
+          >
+          <input type="number" id="numContenedoresMax" />
+          <br />
+
+          <label for="slc">Fecha de llegada</label>
+          <input type="date" id="dateLlegada" />
+          <br />
+
+          <input type="button" value="Ingresar" id="btnCrearViaje" /><br />
+
+          <p id="pCheck"></p>
+        </div>
+
+        <div id="seccionAsignarViaje" class="seccion empresa">
+          <!-- ////ASIGNAR SOLICITUD PENDIENTE/-->
+          <h2>Asignación de solicitudes pendientes</h2>
+          <br />
+
+          <label for="slcViaje">Viaje:</label>
+          <select id="slcViaje"></select>
+
+          <label for="slcSolicitudes">Número solicitud:</label>
+          <select id="slcSolicitudes">
+            <option value="xx">Seleccionar solicitud...</option>
+          </select>
+          <br />
+
+          <input
+            type="button"
+            value="Asignar solicitud"
+            id="btnAsignarCarga"
+          /><br />
+
+          <p id="pAsignarCarga"></p>
+        </div>
+
+        <div id="seccionRollover" class="seccion empresa">
+          <!-- ////  ROLLOVER  ///////////////////-->
+          <h2>Rollover de carga</h2>
+          <br />
+
+          <label for="slcIDSoli">ID Solicitud:</label>
+          <select id="slcIDSoli"></select>
+          <br />
+
+          <label for="slcIDViaje">ID Viaje destino:</label>
+          <select id="slcIDViaje"></select>
+          <br />
+
+          <input type="button" value="Rollear" id="btnRollear" /><br />
+
+          <p id="pRolleado"></p>
+        </div>
+
+        <!-- ////////////////////SECCION MANIFIESTO//////////////////////////-->
+
+        <div id="seccionManifiesto" class="seccion empresa">
+          <h2>Manifiesto de carga</h2>
+          <br />
+
+          <label for="slcNumeroViaje">Seleccione viaje:</label>
+          <select id="slcNumeroViaje"></select>
+          <br />
+
+          <input
+            type="button"
+            value="MOSTRAR MANIFIESTO DE CARGA"
+            id="btnMostrarManifiesto"
+          />
+          <br />
+          <br />
+
+          <div id="tblManifiesto"></div>
+
+          <br />
+          <hr />
+          <br />
+
+          <!-- ////CARGA PELIGROSA///// //////////////////////////////////-->
+          <!-- <div id="seccionManifiesto" class="seccion empresa"> -->
+          <h2>Lista de carga peligrosa</h2>
+          <br />
+
+          <input
+            type="button"
+            value="Mostrar Lista Carga Peligrosa"
+            id="btnMostrarListaCP"
+          />
+          <br />
+
+          <div id="tblCargaPeligrosa"></div>
+        </div>
+      </div>
+
+      <!-- ////HABILITAR IMPORTADOR/////////(IGNORAR SOLICITUDES CANCELADAS)///////////////////////////////////-->
+      <div id="seccionHabilitar" class="seccion empresa">
+        <h2>Habilitar Importadores</h2>
+        <br />
+
+        <label for="slcImportadorInhabilitado">Importador: </label>
+        <select id="slcImportadorInhabilitado">
+          <option value="xx">Seleccionar importador...</option>
+        </select>
+
+        <input
+          type="button"
+          value="Habilitar Importador"
+          id="btnHabilitarImportador"
+        />
+        <br />
+
+        <p id="pMensajeOK"></p>
+      </div>
+      <!-- FIN CONTENIDO -->
+    </div>
+  </body>
+  <script src="./codigo.js"></script>
+</html>
